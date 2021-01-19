@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block add %}
+
+<h1>History</h1>
+<h2>Num1   Num2   Result</h2>
+{% for i in history %}
+<h3>{{i.num1}} + {{i.num2}} =  {{i.res}}</h3>
+{%endfor%}
+<form action='history' method='post' >
+    {% csrf_token %}
+    <input type="radio" name="response" value="add">
+    <label for="add">Add</label><br>
+    <input type="radio" name="response" value="del">
+    <label for="del">Del</label><br>
+    <input type='submit' value='Submit'>
+</form>
+
+{% endblock %}
